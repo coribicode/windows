@@ -1,4 +1,4 @@
-$hostname = 'vm003'
+$hostname = 'vm002'
 $dns1 = '192.168.0.119'
 $dns2 = '8.8.8.8'
 
