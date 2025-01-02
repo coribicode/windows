@@ -1,12 +1,14 @@
-$hostname = 'vm002'
-$dns1 = '192.168.0.119'
-$dns2 = '8.8.8.8'
+###########################################################################
+$domain = 'EMPRESA.NETLAN'           # NOME DO SEU DOMINIO
+$domain_pass='Passw0rd$2'            # SENHA DO usuário 'administrator' DO DOMINIO
+$hostname = 'adm002vm'               # NOME DA MAQUINA LOCAL
+$dns1 = '192.168.0.119'              # IP DO SERVIDOR LDAP
+$dns2 = '8.8.8.8'                    # IP DO DNS/GATEWAY
+$username = "$domain\administrator"  # LOGIN ADMINISTRATOR DO DOMINIO
+###########################################################################
 
-$domain = 'VIRTUALEASY.LANNET'
-$username = "$domain\administrator"
-
-$pwddom = 'Passw0rd$2' | ConvertTo-SecureString -asPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($username,$pwddom);
+$domain_pass = 'Passw0rd$2' | ConvertTo-SecureString -asPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($username,$domain_pass);
 
 Get-NetIPv6Protocol | fl RandomizeIdentifiers
 Set-NetIPv6Protocol -RandomizeIdentifiers Disabled
